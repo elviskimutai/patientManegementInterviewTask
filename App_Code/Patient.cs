@@ -28,6 +28,8 @@ public class Patient
 
     public string CellPhone { get; set; }
     public string Email { get; set; }
+    public DateTime FromDate { get; set; }
+    public DateTime ToDate { get; set; }
     public void LoadManufacurer(ASPxGridLookup searchlookupedit)
     {
         try
@@ -74,6 +76,39 @@ public class Patient
             Security secs = new Security();
             secs.ErrorDesscription = ex.Message;
             secs.ErrorModule = "Select  PatientId";
+            secs.SaveError();
+            return null;
+        }
+    }
+    public DataSet GetDeletedPatients()
+    {
+        try
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString))
+            {
+                using (SqlCommand SqlCommand = new SqlCommand("spSelectDeletedPatients", con))
+                {
+                    ds = new DataSet("PatientsDetails");
+                    SqlCommand.CommandType = CommandType.StoredProcedure;
+                    SqlCommand.Parameters.Clear();
+                    SqlCommand.Parameters.AddWithValue("@FromDate", FromDate);
+                    SqlCommand.Parameters.AddWithValue("@ToDate", ToDate);
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SQAdapter.SelectCommand = SqlCommand;
+                    SQAdapter.Fill(ds, "PatientsDetails");
+                    return ds;
+                }
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Security secs = new Security();
+            secs.ErrorDesscription = ex.Message;
+            secs.ErrorModule = "Select  Deleted Patients";
             secs.SaveError();
             return null;
         }

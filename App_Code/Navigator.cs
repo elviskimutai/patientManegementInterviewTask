@@ -62,12 +62,12 @@ public class Navigator
         NavBarGroup Reports = new NavBarGroup("System Reports ", "Reports", "~/Images/reports2.png");
 
         //Add Processes
-        NavBarItem AuditTrail = new NavBarItem("Audit Trail", "/SystemAdministration/AuditTrailInquiry.aspx");
-        NavBarItem ErrorLogs = new NavBarItem("Error Logs", "/SystemAdministration/ErrorLogsInquiry.aspx");
+        NavBarItem DeletedPatients = new NavBarItem("Deleted Patients", "/Module1/DeletedPatient.aspx");
+        NavBarItem NextOfKinInquiry = new NavBarItem("Next Of Kin", "/Module1/NextOfKinInquiry.aspx");
         NavBarItem UserRolesInquiry = new NavBarItem("User Roles Inquiry", "/SystemAdministration/UserRolesInquiry.aspx");
 
-        Inquiries.Items.Add(ErrorLogs);     
-        Inquiries.Items.Add(AuditTrail);
+        Inquiries.Items.Add(NextOfKinInquiry);     
+        Inquiries.Items.Add(DeletedPatients);
         Inquiries.Items.Add(UserRolesInquiry);
 
         NavBarItem Users = new NavBarItem("New User", "/Module1/NewUser.aspx");

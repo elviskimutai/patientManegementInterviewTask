@@ -29,7 +29,38 @@ public class NextOfKinClass
 
     public string CellPhone { get; set; }
     public string Email { get; set; }
-  
+    public DataSet GetAllNextOfKin()
+    {
+        try
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString))
+            {
+                using (SqlCommand SqlCommand = new SqlCommand("spGetAllNextOfKin", con))
+                {
+                    ds = new DataSet("NextOfKin");
+                    SqlCommand.CommandType = CommandType.StoredProcedure;
+                    SqlCommand.Parameters.Clear();
+
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SQAdapter.SelectCommand = SqlCommand;
+                    SQAdapter.Fill(ds, "NextOfKin");
+                    return ds;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+
+            _Security.ErrorDesscription = ex.Message;
+            _Security.Terminus = Environment.MachineName;
+            _Security.ErrorModule = "Selecting All NextOfKin";
+            _Security.SaveError();
+            return null;
+        }
+    }
     public bool SaveNextOfKin()
     {
         try
