@@ -58,6 +58,39 @@ public class User
             return false;
         }
     }
+    public bool DeleteUser()
+    {
+        try
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString))
+            {
+                using (SqlCommand SqlCommand = new SqlCommand("SaveNewUser", con))
+                {
+                    ds = new DataSet("Users");
+                    SqlCommand.CommandType = CommandType.StoredProcedure;
+                    SqlCommand.Parameters.Clear();
+                    SqlCommand.Parameters.AddWithValue("@UserName", UserName);
+           
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SQAdapter.SelectCommand = SqlCommand;
+                    SQAdapter.Fill(ds, "Users");
+                    return true;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Security secs = new Security();
+            secs.ErrorDesscription = ex.Message;
+            secs.Terminus = Environment.MachineName;
+            secs.ErrorModule = "ESave User";
+            secs.SaveError();
+            return false;
+        }
+    }
     public DataSet SelectAllUsers()
     {
         try
@@ -81,11 +114,43 @@ public class User
         }
         catch (Exception ex)
         {
-            //Security secs = new Security();
-            //secs.ErrorDesscription = ex.Message;
-            //secs.Terminus = Environment.MachineName;
-            //secs.ErrorModule = "Selecting all users";
-            //secs.SaveError();
+            Security secs = new Security();
+            secs.ErrorDesscription = ex.Message;
+            secs.Terminus = Environment.MachineName;
+            secs.ErrorModule = "Selecting all users";
+            secs.SaveError();
+            return null;
+        }
+    }
+    public DataSet SelectUser()
+    {
+        try
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString))
+            {
+                using (SqlCommand SqlCommand = new SqlCommand("SelectNewUser", con))
+                {
+                    ds = new DataSet("Users");
+                    SqlCommand.CommandType = CommandType.StoredProcedure;
+                    SqlCommand.Parameters.Clear();
+                    SqlCommand.Parameters.AddWithValue("@UserName", UserName);
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SQAdapter.SelectCommand = SqlCommand;
+                    SQAdapter.Fill(ds, "Users");
+                    return ds;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Security secs = new Security();
+            secs.ErrorDesscription = ex.Message;
+            secs.Terminus = Environment.MachineName;
+            secs.ErrorModule = "Selecting all users";
+            secs.SaveError();
             return null;
         }
     }

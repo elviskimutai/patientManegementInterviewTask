@@ -50,11 +50,7 @@
                     </div>
 
                       <div class="col-xs-8">
-                          <dx:ASPxButton ID="ASPxButton1" runat="server" Text="New User" CssClass="btn btn-success btn-block btn-flat">
-                                                     <ClientSideEvents click="function(s, e) {
-	cpPopUp.PerformCallback();
-}" />
-                          </dx:ASPxButton>
+                      
  
 
                     </div>
@@ -65,88 +61,7 @@
             </div>
             <!-- /.login-box-body -->
         </div>
-               <dx:ASPxCallbackPanel runat="server" ID="cpLogin" ClientInstanceName="cpLogin" OnCallback="cpLogin_Callback"  >
-                      <ClientSideEvents EndCallback="function(s, e) {
-var resultText = s.cpResult;
-       if (resultText != &quot;&quot; &amp;&amp; resultText !=null)
-         {
-             alert(resultText );
-         }	
-}" />                                           
-               <PanelCollection>
-                                                       <dx:PanelContent>
-           <dx:ASPxCallbackPanel runat="server" ID="cpPopUp" ClientInstanceName="cpPopUp" OnCallback="cpPopUp_Callback" Styles-LoadingPanel-HorizontalAlign="Center"  >
-                                             <Styles>
-                                                 <LoadingPanel HorizontalAlign="Center">
-                                                 </LoadingPanel>
-                                             </Styles>
-                                             <LoadingPanelStyle HorizontalAlign="Center">
-                                             </LoadingPanelStyle>
-                                   <PanelCollection>
-                                     <dx:PanelContent>
-
-                <dx:ASPxPopupControl ID="ASPxPopupControl1" ClientInstanceName="popup" runat="server" RenderMode="Lightweight" style="text-align: center" Width="500px" Height="500px" Theme="Metropolis" HeaderImage-AlternateText=" " PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="False" PopupVerticalAlign="WindowCenter" HeaderText="Please Register" AllowDragging="True" AllowResize="True">
-<HeaderImage AlternateText=" "></HeaderImage>
-                                  <ContentCollection>
-                                <dx:PopupControlContentControl runat="server" SupportsDisabledAttribute="True">
-                              <div class="login-box-body">
-                <p class="login-box-msg">New User Registration</p>
-                <div class="form-group has-feedback">
-                    <input type="email" id="txtEmailNew" class="form-control" placeholder="Email" required="required" runat="server" />
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                </div>
-    <div class="form-group has-feedback">
-                    <input type="text" id="txtFullNames" class="form-control" placeholder="Full Names" required="required" runat="server" />
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                </div>
-  <div class="form-group has-feedback">
-                    <input type="text" id="txttelephone" class="form-control" placeholder="Telephone" required="required" runat="server" />
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                </div>
-
-                <div class="form-group has-feedback">
-                    <input type="password" id="txtPassword1" class="form-control" placeholder="Password" required="required" runat="server" autocomplete="off" />
-                    <span class="fa fa-lock form-control-feedback"></span>
-                </div>
-
-                                     <div class="form-group has-feedback">
-                    <input type="password" id="txtConfirmPassword" class="form-control" placeholder="ConfirmPassword" required="required" runat="server" autocomplete="off" />
-                    <span class="fa fa-lock form-control-feedback"></span>
-                </div>
-
-
-                   
-                <div class="row">
-                  
-                    <!-- /.col -->
-                    <div class="col-xs-4">
-                        <dx:ASPxButton ID="Button1" runat="server" Text="Register" Width="100px" CssClass="btn btn-success btn-block btn-flat" >
-                                                                              <ClientSideEvents click="function(s, e) {
-	cpLogin.PerformCallback();
-}" />
-                        </dx:ASPxButton><br />
-
-                    </div>
-
-                      <div class="col-xs-8">
-                     
-
-
-                    </div>
-                  
-                </div>
-                                  </div>
-                                   </dx:PopupControlContentControl>
-                                </ContentCollection>
-                               </dx:ASPxPopupControl>
-                                                             </dx:PanelContent>
-                      
-                  </PanelCollection>
-                </dx:ASPxCallbackPanel>
-                            
-                                                 </dx:PanelContent>
-                           </PanelCollection>
-                           </dx:ASPxCallbackPanel>     
+               
                                                            
                                                            
                                                                                   </dx:PanelContent>

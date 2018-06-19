@@ -245,7 +245,7 @@ function OnInit(s, e) {
                 <td style="padding: 0px; background-position: right;height:auto; color: #000000; font-family: Garamond; background-repeat: no-repeat; vertical-align: top;" class="auto-style8">
                      <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                          <ContentTemplate>
-            <iframe id="frame1" runat="server" class="auto-style6" frameborder="no" name="frame1" width="100%" height="100%"  src="Admin/NewUser.aspx" >	</iframe>
+            <iframe id="frame1" runat="server" class="auto-style6" frameborder="no" name="frame1" width="100%" height="100%"  src="Module1/PatientsEnrollMents.aspx" >	</iframe>
                          </ContentTemplate>
                      </asp:UpdatePanel>
                  <dx:ASPxLoadingPanel ID="LoadingPanel" runat="server" ClientInstanceName="LoadingPanel" Theme="Default" VerticalAlign="Middle">

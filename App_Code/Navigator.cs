@@ -17,13 +17,6 @@ public class Navigator
     Security _Security = new Security();
 
 
-   
- 
-
-   
-   
- 
-   
 
     public void LoadHelpDeskTicketsnMenus(ASPxMenu menu)
     {
@@ -53,7 +46,7 @@ public class Navigator
 
             Security _Security = new Security();
             _Security.ErrorDesscription = ex.Message;
-            _Security.ErrorModule = "Validating view Privilige on Ticketing system Top Menus";
+            _Security.ErrorModule = "Validating view Privilige on Top Menus";
             _Security.SaveError();
         }
     }
@@ -65,7 +58,7 @@ public class Navigator
         //Add groups 
         NavBarGroup Inquiries = new NavBarGroup("Inquiries Analysis", "Inquiries", "~/Images/edit5.png");
         NavBarGroup Processes = new NavBarGroup("Master Operations", "Processes", "~/Images/process2.png");
-        NavBarGroup Workflow = new NavBarGroup("Configuration", "Workflow", "~/Images/process2.png");
+        NavBarGroup Configuration = new NavBarGroup("Configuration", "Workflow", "~/Images/process2.png");
         NavBarGroup Reports = new NavBarGroup("System Reports ", "Reports", "~/Images/reports2.png");
 
         //Add Processes
@@ -73,38 +66,31 @@ public class Navigator
         NavBarItem ErrorLogs = new NavBarItem("Error Logs", "/SystemAdministration/ErrorLogsInquiry.aspx");
         NavBarItem UserRolesInquiry = new NavBarItem("User Roles Inquiry", "/SystemAdministration/UserRolesInquiry.aspx");
 
-        Inquiries.Items.Add(ErrorLogs);
-     
-            Inquiries.Items.Add(AuditTrail);
-        
+        Inquiries.Items.Add(ErrorLogs);     
+        Inquiries.Items.Add(AuditTrail);
+        Inquiries.Items.Add(UserRolesInquiry);
 
-      
-            Inquiries.Items.Add(UserRolesInquiry);
-        
+        NavBarItem Users = new NavBarItem("New User", "/Module1/NewUser.aspx");
         NavBarItem Departments = new NavBarItem("Departments", "/Module1/DepartmentsForm.aspx");
         NavBarItem Patients = new NavBarItem("Patients Details", "/Module1/PatientForm.aspx");
-        NavBarItem NextOfKin = new NavBarItem("Next of Kin", "/Module1/NextOfKinForm.aspx");
-    
-        NavBarItem Enroll = new NavBarItem("Patients Enrollment", "/SystemAdministration/Roles.aspx");
+        NavBarItem NextOfKin = new NavBarItem("Next of Kin", "/Module1/NextOfKinForm.aspx");    
+        NavBarItem Enroll = new NavBarItem("Patients Enrollment", "/Module1/PatientsEnrollMents.aspx");
 
-       
-        
-            Processes.Items.Add(Departments);
-        
             Processes.Items.Add(Patients);
       
             Processes.Items.Add(NextOfKin);
        
             Processes.Items.Add(Enroll);
-       
-       
-      
-       
+
+            Configuration.Items.Add(Users);
+            Configuration.Items.Add(Departments);
+
+
         //Bind Navigation Bar
         NavigationBar.Groups.Clear();
         NavigationBar.Groups.Add(Inquiries);
         NavigationBar.Groups.Add(Processes);
-        NavigationBar.Groups.Add(Workflow);
+        NavigationBar.Groups.Add(Configuration);
         NavigationBar.Groups.Add(Reports);
         Processes.Expanded = true;
     }

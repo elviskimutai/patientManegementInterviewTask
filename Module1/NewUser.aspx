@@ -1,20 +1,40 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WebForm2.aspx.cs" Inherits="WebForm2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NewUser.aspx.cs" Inherits="Admin_NewUser" %>
+
 
 <%@ Register assembly="DevExpress.Web.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
+
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <script  type ="text/javascript" src="Scripts/jquery-3.1.0.min.js"></script>
-     <script type ="text/javascript" src ="Scripts/Book.js"></script>
-     <script type ="text/javascript" src ="Scripts/SecurityValidation.js"></script>        
+   
+    <title>Users</title>
     <style type="text/css">
-        .nav {
+
+.dxeMemoEditAreaSys{
+  padding: 3px 0px 0px 3px;
+
+}
+        .auto-style1 {
             width: 100%;
+        }
+
+        .auto-style2 {
             padding-left: 15px;
-                    }
+        }
+
+                        
+                        .nav
+                        {
+                            width:100%;
+                            padding-left:15px;
+                        }
+                        html,body{
+                            margin:0px;
+                            border:0px;
+                            padding:0px;
+                        }
  
                         .dxflFormLayout {
     display: table;
@@ -24,107 +44,63 @@
 .dxflGroup { padding: 6px 5px; width: 100%;}
 .dxflGroupCell { padding: 0 8px; }
 
-.dxflVATSys { vertical-align: top; }
 
-.dxflGroup tr:first-child > .dxflGroupCell > .dxflGroupBox,
-.dxflGroup > .dxflChildInFirstRowSys > .dxflGroupCell > .dxflGroupBox {
-    margin-top: 13px;
-}
-
-.dxflGroupBox {
-    display: table;
-    border-collapse: separate;
-    width: 100%;
-    border: 1px Solid #9F9F9F;
-    border-radius: 3px;
-    padding: 0 0 12px;
-    margin: 10px 0; 
-}
-.dxflGroupBoxSys
-{
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-
-
-.dxflItemSys,
-.dxflGroupBoxSys
+.dxflItemSys
 {
     text-align: left;
 }
 
-.dxflGroupBoxCaption {
-    background-color: White;
-    color: #818181;
-    display: inline-block;  
-    left: 9px;
-    line-height: 16px;
-    padding: 0px 3px 0px 3px;  
-    position: relative;
-    top: -9px;
-}
-
-.dxflGroupBox > .dxflGroup { margin-top: -9px; padding: 0 4px; }
-
-.dxflGroupBox > .dxflGroup tr:first-child > .dxflGroupCell > .dxflItem,
-.dxflGroupBox > .dxflGroup > .dxflChildInFirstRowSys > .dxflGroupCell > .dxflItem { 
-    padding-top: 9px;
-}
 
 .dxflItem { padding: 2px 0; width: 100%; }
+
+
 .dxflTextEditItemSys .dxflVATSys.dxflCaptionCell { padding-top: 3px; }
 
-.dxflCLLSys .dxflCaptionCell,
-*[dir="rtl"].dxflFormLayout .dxflCLRSys .dxflCaptionCell {
+.dxflCLLSys .dxflCaptionCell {
     padding-left: 0px;
     padding-right: 6px;
 }
-.dxflCaptionCell {
+
+.dxflVATSys { vertical-align: top; }
+
+        .dxflCaptionCell {
     width: 1%;
 }
+
 .dxflCaptionCell {
     white-space: nowrap;
     line-height: 16px;
     height: 100%;
 }
-.dxflCaptionCellSys { /* Bootstrap correction */
+
+    .dxflCaptionCellSys { /* Bootstrap correction */
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
+
 .dxflHALSys { text-align: left; }
-td.dxflNestedControlCell {
-    height: 0;
-}
-
-        .auto-style1 {
-            width: 100%;
-        }
-
-        .auto-style2 {
-            padding-left: 15px;
-        }
-
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-    
+     <dx:ASPxCallbackPanel runat="server" ID="cpUsers" ClientInstanceName="cpUsers" OnCallback="cpUsers_Callback"  >
+      <PanelCollection>
+      <dx:PanelContent>
         <table class="auto-style1">
             <tr>
                 <td>        
-    <dx:ASPxMenu runat="server" EnableAdaptivity="True" CssClass="auto-style2" ID="ASPxMenu4" EnableTheming="True" Font-Bold="True" ForeColor="Red" Theme="Metropolis">
+    <dx:ASPxMenu runat="server" EnableAdaptivity="True" CssClass="nav" ID="ASPxMenu4" EnableTheming="True" Font-Bold="True" ForeColor="Red" Theme="Office2003Blue">
         <Items>
-            <dx:MenuItem Text="Get Funding" Name="Item1">
+            <dx:MenuItem Text="Users" Name="Item1">
                 <ItemStyle/>
                 <Template>
-                    <dx:ASPxLabel ID="lblCurrentPage" runat="server" Text="Real Pro Solutions" ForeColor="Blue">
+                    <dx:ASPxLabel ID="lblCurrentPage" runat="server" Text="Users" ForeColor="Blue">
                     </dx:ASPxLabel>
                 </Template>
             </dx:MenuItem>
-            <dx:MenuItem Text="Real Pro Solutions" Name="Item3">
+            <dx:MenuItem Text="Invest Your Money" Name="Item3">
                 <ItemStyle/>
                 <Template>
                     <dx:ASPxLabel ID="lblStatus" runat="server" Text="          ">
@@ -145,7 +121,7 @@ td.dxflNestedControlCell {
 </ItemStyle>
 </dx:ASPxMenu>
 
-                    <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server">
+                    <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="GvUsers">
                     </dx:ASPxGridViewExporter>
 
                 </td>
@@ -160,28 +136,78 @@ td.dxflNestedControlCell {
             </SettingsCollapsing>
             <ExpandedPanelTemplate>
                 <dx:ASPxMenu ID="ASPxMenu3" runat="server" CssClass="nav" EnableAdaptivity="True" Orientation="Vertical">
-                    <Items>
-                        <dx:MenuItem Text="Save">
-                            <Image Url="~/Images/database.png">
-                            </Image>
-                        </dx:MenuItem>
-                        <dx:MenuItem Text="Edit">
-                            <Image Url="~/Images/edit5.png">
-                            </Image>
-                        </dx:MenuItem>
-                        <dx:MenuItem Text="Delete">
-                            <Image Url="~/Images/delete.png">
-                            </Image>
-                        </dx:MenuItem>
-                        <dx:MenuItem Text="Export">
-                            <Image Url="~/Images/excel.png">
-                            </Image>
-                        </dx:MenuItem>
-                        <dx:MenuItem Text="Links">
-                            <Image Url="~/Images/links.png">
-                            </Image>
-                        </dx:MenuItem>
-                    </Items>
+                    <ClientSideEvents ItemClick="function(s, e)
+ {
+	switch(e.item.name)
+{
+	case &quot;mnuSave&quot;:		
+
+			saveUsers();
+	
+
+
+		break;
+	case &quot;mnuEdit&quot;:
+
+			EnableField();
+
+
+	break;
+	case &quot;mnuDelete&quot;:
+				DeleteUsers();
+                        
+
+
+	break;
+
+	case &quot;mnuLinks&quot;:
+
+		
+
+	break;
+
+case &quot;mnuClose&quot;:
+	if (confirm('Are you sure you want to Close?')) {
+         window.location.href = &quot;../Slider.aspx&quot;;
+
+          }	
+     break;
+
+case &quot;mnuHelp&quot;:
+		window.open(&quot;/WebHelp/Users.htm&quot;);
+	break;
+
+	default:
+	break;
+}
+	
+}" />
+        <Items>
+            <dx:MenuItem Text="Save" Name="mnuSave">
+                <Image Url="~/Images/database.png">
+                </Image>
+            </dx:MenuItem>
+            <dx:MenuItem Text="Edit" Name="mnuEdit">
+                <Image Url="~/Images/edit5.png">
+                </Image>
+            </dx:MenuItem>
+            <dx:MenuItem Text="Delete" Name="mnuDelete">
+                <Image Url="~/Images/delete.png">
+                </Image>
+            </dx:MenuItem>
+            <dx:MenuItem Text="Links" Name="mnuLinks">
+                <Image Url="~/Images/links.png">
+                </Image>
+            </dx:MenuItem>
+            <dx:MenuItem Text="Close" Name="mnuClose">
+                <Image Url="~/Images/close.png">
+                </Image>
+            </dx:MenuItem>
+            <dx:MenuItem Text="Help" Name="mnuHelp">
+                <Image Url="~/Images/help.png">
+                </Image>
+            </dx:MenuItem>
+        </Items>
                     <ItemStyle>
                     <Border BorderStyle="None" />
                     <BorderLeft BorderStyle="None" />
@@ -208,34 +234,47 @@ function OnInit(s, e) {
            
             <PanelCollection>
 <dx:PanelContent runat="server">
-    <dx:ASPxMenu ID="ASPxMenu5" runat="server" EnableAdaptivity="True" Theme="Metropolis" EnableTheming="True" CssClass="nav">
+    <dx:ASPxMenu ID="ASPxMenu8" runat="server" EnableAdaptivity="True" Theme="Metropolis" EnableTheming="True" CssClass="nav">
         <ClientSideEvents ItemClick="function(s, e)
  {
 	switch(e.item.name)
 {
 	case &quot;mnuSave&quot;:		
-		ValidateRight2(&quot;Add&quot;,&quot;WebForm2&quot;)		
-		if(validation==true)
-{
-			alert(&quot;Validation succeeded&quot;);
-			SaveRecord();
-}
+		saveUsers();
+		
+
 
 		break;
 	case &quot;mnuEdit&quot;:
-		ValidateRight2(&quot;Add&quot;,&quot;WebForm2&quot;);
+
+			EnableField();
+
+
 	break;
 	case &quot;mnuDelete&quot;:
-		ValidateRight2(&quot;Add&quot;,&quot;WebForm2&quot;);
+
+			DeleteUsers();
+            
+
+
 	break;
-	case &quot;mnuExport&quot;:
-		ValidateRight2(&quot;Add&quot;,&quot;WebForm2&quot;);
-	break;
+
 	case &quot;mnuLinks&quot;:
-		ValidateRight2(&quot;Add&quot;,&quot;WebForm2&quot;);
+
+		
+
 	break;
+
+case &quot;mnuClose&quot;:
+	if (confirm('Are you sure you want to Close?')) {
+    
+         window.history.back();
+
+          }	
+     break;
+
 case &quot;mnuHelp&quot;:
-		window.open(&quot;/WebHelp/Index.htm&quot;);
+		window.open(&quot;/WebHelp/Users/index.htm&quot;);
 	break;
 
 	default:
@@ -260,7 +299,7 @@ case &quot;mnuHelp&quot;:
                 <Image Url="~/Images/links.png">
                 </Image>
             </dx:MenuItem>
-            <dx:MenuItem Text="Close">
+            <dx:MenuItem Text="Close" Name="mnuClose">
                 <Image Url="~/Images/close.png">
                 </Image>
             </dx:MenuItem>
@@ -289,16 +328,17 @@ case &quot;mnuHelp&quot;:
     
         <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0" EnableTabScrolling="True" EnableTheming="True" Theme="Metropolis" Width="100%">
             <TabPages>
-                <dx:TabPage Text="Basic Information">
+                <dx:TabPage Text="Users">
                     <ContentCollection>
                         <dx:ContentControl runat="server">
-                            <dx:ASPxFormLayout ID="ASPxFormLayout3" runat="server" ColCount="2">
+                            <dx:ASPxFormLayout ID="ASPxFormLayout5" runat="server" ColCount="2">
                                 <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="580" />
                                 <Items>
-                                    <dx:LayoutItem Caption="CustCode  " RequiredMarkDisplayMode="Required" Name="txtCustCode">
+                                       
+                                    <dx:LayoutItem Caption="UserName" RequiredMarkDisplayMode="Required" Name="txtUserName">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxTextBox ID="ASPxFormLayout2_E5" runat="server" Width="170px">
+                                                <dx:ASPxTextBox ID="txtUserName" runat="server" Width="170px" ClientInstanceName="txtUserName" Theme="Metropolis">
                                                     <Paddings PaddingLeft="0px" />
                                                     <ValidationSettings Display="Dynamic" ErrorTextPosition="Bottom">
                                                     </ValidationSettings>
@@ -312,12 +352,25 @@ case &quot;mnuHelp&quot;:
                                             <Paddings PaddingLeft="0px" />
                                         </NestedControlCellStyle>
                                     </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="CustName " RequiredMarkDisplayMode="Required" Name="txtCustName">
+                                        <dx:LayoutItem Caption="FullNames" Name="txtFullNames">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxTextBox ID="ASPxFormLayout2_E6" runat="server" Width="170px">
+                                                 <dx:ASPxTextBox ID="txtFullNames" runat="server" Width="170px" ClientInstanceName="txtFullNames" Theme="Metropolis">
                                                     <Paddings PaddingLeft="0px" />
                                                     <ValidationSettings Display="Dynamic" ErrorTextPosition="Bottom">
+                                                    </ValidationSettings>
+                                                </dx:ASPxTextBox>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+                                          <dx:LayoutItem Caption="Password" RequiredMarkDisplayMode="Required">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer runat="server">
+                                                <dx:ASPxTextBox ID="txtPassword" runat="server" Width="170px" ClientInstanceName="txtPassword" Password="True" Theme="Metropolis">
+
+                                                    <Paddings PaddingLeft="0px" />
+                                                    <ValidationSettings Display="Dynamic" ErrorTextPosition="Bottom">
+                                                        <RequiredField IsRequired="True" />
                                                     </ValidationSettings>
                                                 </dx:ASPxTextBox>
                                             </dx:LayoutItemNestedControlContainer>
@@ -329,76 +382,86 @@ case &quot;mnuHelp&quot;:
                                             <Paddings PaddingLeft="0px" />
                                         </NestedControlCellStyle>
                                     </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="Telephone" RequiredMarkDisplayMode="Required">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxTextBox ID="ASPxFormLayout2_E7" runat="server" Width="170px">
-                                                    <Paddings PaddingLeft="0px" />
-                                                    <ValidationSettings Display="Dynamic" ErrorTextPosition="Bottom">
-                                                    </ValidationSettings>
-                                                </dx:ASPxTextBox>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                        <CaptionCellStyle>
-                                            <Paddings PaddingLeft="0px" />
-                                        </CaptionCellStyle>
-                                        <NestedControlCellStyle>
-                                            <Paddings PaddingLeft="0px" />
-                                        </NestedControlCellStyle>
-                                    </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="CreditLimit" RequiredMarkDisplayMode="Required">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxTextBox ID="ASPxFormLayout2_E8" runat="server" Width="170px">
-                                                    <Paddings PaddingLeft="0px" />
-                                                    <ValidationSettings Display="Dynamic" ErrorTextPosition="Bottom">
-                                                    </ValidationSettings>
-                                                </dx:ASPxTextBox>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                        <CaptionCellStyle>
-                                            <Paddings PaddingLeft="0px" />
-                                        </CaptionCellStyle>
-                                        <NestedControlCellStyle>
-                                            <Paddings PaddingLeft="0px" />
-                                        </NestedControlCellStyle>
-                                    </dx:LayoutItem>
+                                    <dx:LayoutItem Caption="Securrity Question">
+                                         <LayoutItemNestedControlCollection>
+                                             <dx:LayoutItemNestedControlContainer runat="server">
+                                                 <dx:ASPxTextBox ID="txtSecQue" runat="server" Width="170px" ClientInstanceName="txtSecQue">
+ 
+                                                 </dx:ASPxTextBox>
+                                             </dx:LayoutItemNestedControlContainer>
+                                         </LayoutItemNestedControlCollection>
+                                     </dx:LayoutItem>
+                                     <dx:LayoutItem Caption="Answer">
+                                         <LayoutItemNestedControlCollection>
+                                             <dx:LayoutItemNestedControlContainer runat="server">
+                                                 <dx:ASPxTextBox ID="txtAnswer" runat="server" ClientInstanceName="txtAnswer" Width="170px">
+
+                                                 </dx:ASPxTextBox>
+                                             </dx:LayoutItemNestedControlContainer>
+                                         </LayoutItemNestedControlCollection>
+                                     </dx:LayoutItem>
+                                     <dx:LayoutItem Caption="Email">
+                                         <LayoutItemNestedControlCollection>
+                                             <dx:LayoutItemNestedControlContainer runat="server">
+                                                 <dx:ASPxTextBox ID="txtEmail" runat="server" ClientInstanceName="txtEmail" Width="170px">
+                                                     <ValidationSettings CausesValidation="True" Display="Dynamic" EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom" SetFocusOnError="True" ValidationGroup="group1">
+                                                                        <RegularExpression ErrorText="enter valid email address." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
+                                                                        <RequiredField ErrorText="enter valid email address." IsRequired="True" />
+                                                                    </ValidationSettings>
+
+                                        </dx:ASPxTextBox>
+                                             </dx:LayoutItemNestedControlContainer>
+                                         </LayoutItemNestedControlCollection>
+                                     </dx:LayoutItem>
+                                     <dx:LayoutItem Caption="Telephone">
+                                         <LayoutItemNestedControlCollection>
+                                             <dx:LayoutItemNestedControlContainer runat="server">
+                                                 <dx:ASPxTextBox ID="txtTelephone" runat="server" ClientInstanceName="txtTelephone" Width="170px" MaxLength="13">
+                                                      </dx:ASPxTextBox>
+                                             </dx:LayoutItemNestedControlContainer>
+                                         </LayoutItemNestedControlCollection>
+                                     </dx:LayoutItem>
                                 </Items>
                                 <SettingsItemCaptions Location="Left" />
                             </dx:ASPxFormLayout>
                         </dx:ContentControl>
                     </ContentCollection>
                 </dx:TabPage>
-                <dx:TabPage Text="Other Information">
-                    <ContentCollection>
-                        <dx:ContentControl runat="server">
-                        </dx:ContentControl>
-                    </ContentCollection>
-                </dx:TabPage>
             </TabPages>
-
         </dx:ASPxPageControl>
-    
                 </td>
             </tr>
         </table>
-        
+        </dx:PanelContent>
+       </PanelCollection>
+     </dx:ASPxCallbackPanel> 
     </div>
 
-       <dx:ASPxGridView runat="server" Width="100%" ID="ASPxGridView1" ClientInstanceName="ASPxGridView1" DataSourceID="SqlDataSource1" KeyFieldName="CurrCode" EnableRowsCache="False" EnableTheming="True" Theme="Metropolis">
+       <dx:ASPxGridView runat="server" Width="100%" ID="GvUsers" ClientInstanceName="GvUsers" EnableRowsCache="False" EnableTheming="True" Theme="Metropolis" OnFillContextMenuItems="Grid_FillContextMenuItems"
+        OnContextMenuItemClick="Grid_ContextMenuItemClick" KeyFieldName="UserName;" >
             <Settings VerticalScrollBarMode="Visible" ShowFilterBar="Visible" ShowFilterRow="True" ShowFilterRowMenu="True" ShowGroupPanel="True" />
-                        <SettingsBehavior AllowSelectByRowClick="True" />
+                        <SettingsBehavior AllowSelectByRowClick="True" ColumnResizeMode="Control" />
                         <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
                         <EditFormLayoutProperties>
                 <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="600" />
             </EditFormLayoutProperties>
+            <ClientSideEvents RowClick="function(s, e) {
+	GvUsers_RowClick(s, e);
+}" ContextMenuItemClick="function(s, e) {
+OnContextMenuItemClick(s, e); 	
+}" />
+            <SettingsContextMenu Enabled="True">
+            </SettingsContextMenu>
             <settingspager numericbuttoncount="6" />
             <Styles>
                 <Cell Wrap="False"></Cell>
             </Styles>
         </dx:ASPxGridView>
-                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:conStr %>" SelectCommand="SELECT [CurrID], [CurrCode], [CurrDesc], [CurrPrec], [CreatedUser], [CreatedDate], [UpdatedUser], [UpdatedDate], [Terminus] FROM [Currencies]"></asp:SqlDataSource>
-    </form>
+         <script  type ="text/javascript" src="../Scripts/jquery-3.1.0.min.js"></script>
+       
+        <script src="../Scripts/Users.js"></script>
+
+            </form>
 
 </body>
 </html>
