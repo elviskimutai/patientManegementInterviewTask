@@ -1,0 +1,265 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Home.master.cs" Inherits="Home" %>
+
+
+<%@ Register assembly="DevExpress.Web.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">   
+    <title>Real Pro Solutions </title>
+        <link rel="icon" type="image/ico" href="Images/home.png" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>    
+
+    <script src="../Scripts/CapitalVenture.js"></script>    
+
+    <style type="text/css">
+    .modal
+    {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: black;
+        z-index: 99;
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+       
+        min-height: 100%;
+        width: 100%;
+    }
+        .loading {
+            font-family: Arial;
+            font-size: 10pt;
+            border: 5px solid #67CFF5;
+            width: 200px;
+            height: 100px;
+            display: none;
+            position: fixed;
+            background-color: White;
+            z-index: 999;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0; 
+            height:60px;         
+            width: 100%;
+            font-family:Garamond;          
+            background-color: #3F5396;
+            border-top: 5px solid #FFCC00;
+            color: #fff;
+            text-align:center;
+            align-content:center;   
+            align-items:center;            
+        }
+
+        .auto-style1 {
+            width: 100%;
+        }
+        .topPanel
+        {
+            padding-left: 0!important;
+            padding-right: 0!important;
+        }
+
+
+        </style>
+</head>
+<body>
+    
+    <form id="form1" runat="server">
+       
+        <div style="height:0.5px">
+        <asp:ScriptManager runat="server" EnablePageMethods="True" ID="ScriptManager1"></asp:ScriptManager>
+        <dx:ASPxCallback ID="cpPopUp" runat="server" ClientInstanceName="cpPopUp" OnCallback="cpPopUp_Callback">
+        <ClientSideEvents CallbackComplete="function(s, e) { LoadingPanel.Hide(); }" />
+    </dx:ASPxCallback>
+        
+        </div>
+    <div>
+        <table class="auto-style1">
+            <tr>
+                    
+                <td colspan="2" style="background-position: right; color: #000000; font-family: Garamond; background-repeat: no-repeat;">
+                    <div class="navbar" style="padding: 0px">    
+                    <style type="text/css">
+                        .nav
+                        {
+                            width:100%;
+                            padding-left:15px;
+                            align-content:center;                                                
+                            
+                        }
+ 
+                        .auto-style5 {
+                            width: 9px;
+                            height: 252px;
+                        }
+ 
+                        .dxflInternalEditorTable {
+    width: 100%;
+}
+ 
+                        .auto-style7 {
+                            font-size: x-large;
+                            font-family: Garamond;
+                            color: #3E5496;
+                        }
+ 
+                        .auto-style8 {
+                            height: 252px;
+                        }
+ 
+                        .auto-style6 {
+                            overflow: scroll;
+                            width: 100%;
+                            left: 0;
+                            padding-top:0;
+                            height: 490px;
+                            margin-left: 0px;
+                        } 
+                        </style> 
+                    <div class="navbar">
+    <div style="background-repeat: no-repeat; background-position: right">        
+                <dx:ASPxPanel ID="ASPxPanel1" runat="server" ClientInstanceName="topPanel" Collapsible="True" CssClass="topPanel" FixedPosition="WindowTop" Theme="PlasticBlue">
+                    <SettingsAdaptivity CollapseAtWindowInnerWidth="580" />
+                    <SettingsCollapsing AnimationType="Fade">
+                        <ExpandButton GlyphType="Strips" />
+                    </SettingsCollapsing>
+                   
+                    <ClientSideEvents Init="function(s, e) {
+	var collapseAtWindowInnerWidth = 580;
+function OnInit(s, e) {
+    ASPxClientControl.GetControlCollection().BrowserWindowResized.AddHandler(function (ge, ea) {
+        if(window.document.documentElement.clientWidth &lt;= collapseAtWindowInnerWidth) {
+      	 s.Collapse();
+        } else {
+                 s.Expand();  
+        }
+    });
+}
+}" />
+                    <PanelCollection>
+                        <dx:PanelContent runat="server">
+                            <table class="dxflInternalEditorTable" style="padding: 0px">
+                                <tr>
+                                    <td>
+                                        <asp:Image ID="Image2" runat="server" Height="29px" ImageUrl="~/Images/home.png" />
+                                        <span class="auto-style7"></span></td>
+                                    <td>
+                                        <br />
+                                        <dx:ASPxLabel ID="lblCompany" runat="server" Font-Bold="False" Font-Size="10pt" ForeColor="#3F5396" style="font-size: small" Text="Real Pro Solutions" Theme="RedWine">
+                                        </dx:ASPxLabel>
+                                    </td>
+                                    <td>
+                                        <br />
+                                        <dx:ASPxLabel ID="lblUserName" runat="server" Font-Bold="False" Font-Size="10pt" ForeColor="#3F5396" style="font-size: small" Text="Guest:" Theme="RedWine">
+                                        </dx:ASPxLabel>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <dx:ASPxCallbackPanel ID="cpModules" runat="server" OnCallback="cpModules_Callback">
+                                            <PanelCollection>
+                                                <dx:PanelContent runat="server">
+                                                    <dx:ASPxMenu ID="ASPxMenu3" runat="server" ClientInstanceName="mnuModules" CssClass="nav" EnableAdaptivity="True" Theme="DevEx" OnItemClick="ASPxMenu3_ItemClick" Height="26px">
+
+                                                        <ItemStyle>
+                                                        <Border BorderStyle="None" />
+                                                        <BorderLeft BorderStyle="None" />
+                                                        <BorderTop BorderStyle="None" />
+                                                        <BorderRight BorderStyle="None" />
+                                                        <BorderBottom BorderStyle="None" />
+                                                        </ItemStyle>
+                                                    </dx:ASPxMenu>
+                                                </dx:PanelContent>
+                                            </PanelCollection>
+                                        </dx:ASPxCallbackPanel>
+                                    </td>
+                                </tr>
+                            </table>
+                        </dx:PanelContent>
+                    </PanelCollection>
+                    <BackgroundImage HorizontalPosition="right" Repeat="NoRepeat" VerticalPosition="center" />
+                </dx:ASPxPanel>
+    </div>
+</div>
+                    </div>
+                </td>                
+            </tr>
+            <tr>
+                <td class="auto-style5" style="font-family: Garamond; vertical-align: top;">
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <dx:ASPxPanel ID="ASPxPanel3" runat="server" Collapsible="True" Theme="Office2010Silver" Width="217px" CssClass="leftPanel" Height="100%">
+                                <SettingsCollapsing>
+                                    <ExpandButton GlyphType="Strips" />
+                                </SettingsCollapsing>
+                                <Paddings PaddingBottom="0px" PaddingLeft="0px" PaddingRight="0px" PaddingTop="0px" />
+                                <PanelCollection>
+                                    <dx:PanelContent runat="server">
+                                        <table class="dxeBinImgCPnlSys">
+                                            <tr>
+                                                <td>
+                                                    &nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                   
+            
+             <dx:ASPxNavBar ID="ASPxNavBar2" runat="server" AutoCollapse="True" Theme="Office2010Silver" Height="100%">
+                                                       <ClientSideEvents ItemClick="function(s, e) { 
+                                   
+    	    	
+                                                           
+                                                           var ReportCookie= &quot;ReportName=&quot; +e.item.GetText();
+	     	  document.cookie = ReportCookie;
+
+                                   var iframe=document.getElementById('frame1'); 
+                                                                              cpPopUp.PerformCallback();
+                        LoadingPanel.Show();     
+   iframe.src=e.item.name;
+                                                            iframe.reload(true);
+                                		                                     
+}
+       
+            
+            
+" />
+                                                    </dx:ASPxNavBar>
+         
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                               </td>
+                                            </tr>
+                                        </table>
+                                    </dx:PanelContent>
+                                </PanelCollection>
+                            </dx:ASPxPanel>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </td>                    
+                <td style="padding: 0px; background-position: right;height:auto; color: #000000; font-family: Garamond; background-repeat: no-repeat; vertical-align: top;" class="auto-style8">
+                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                         <ContentTemplate>
+            <iframe id="frame1" runat="server" class="auto-style6" frameborder="no" name="frame1" width="100%" height="100%"  src="Admin/NewUser.aspx" >	</iframe>
+                         </ContentTemplate>
+                     </asp:UpdatePanel>
+                 <dx:ASPxLoadingPanel ID="LoadingPanel" runat="server" ClientInstanceName="LoadingPanel" Theme="Default" VerticalAlign="Middle">
+    </dx:ASPxLoadingPanel>
+                </td>
+            </tr>
+            </table>
+       
+    </div>   
+       
+       <script type="text/javascript">
+           
+          
+       </script>
+    </form>     
+</body>    
+</html>
