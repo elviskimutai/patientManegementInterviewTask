@@ -30,8 +30,37 @@ public class Security
     public string Right { get; set; }
     #endregion
     HttpCookie UserNameCookie = new HttpCookie("UserName");
- 
 
+    public DataSet GetAllAuditTrail()
+    {
+        try
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString))
+            {
+                using (SqlCommand SqlCommand = new SqlCommand("spGetAllAuditTrail", con))
+                {
+                    ds = new DataSet("AuditTrail");
+                    SqlCommand.CommandType = CommandType.StoredProcedure;
+                    SqlCommand.Parameters.Clear();
+
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SQAdapter.SelectCommand = SqlCommand;
+                    SQAdapter.Fill(ds, "AuditTrail");
+                    return ds;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+
+            var ErrorDesscription = ex.Message;
+
+            return null;
+        }
+    }
     public bool ValidateUser()
     {
         try

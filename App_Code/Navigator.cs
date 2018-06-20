@@ -64,11 +64,13 @@ public class Navigator
         //Add Processes
         NavBarItem DeletedPatients = new NavBarItem("Deleted Patients", "/Module1/DeletedPatient.aspx");
         NavBarItem NextOfKinInquiry = new NavBarItem("Next Of Kin", "/Module1/NextOfKinInquiry.aspx");
-        NavBarItem UserRolesInquiry = new NavBarItem("User Roles Inquiry", "/SystemAdministration/UserRolesInquiry.aspx");
+        NavBarItem PatientsBelow15 = new NavBarItem("Patients Below15", "/Module1/PatientsBelow15yrs.aspx");
+        NavBarItem AuditTrails = new NavBarItem("Audit Trails", "/Module1/AuditTrailInquiry.aspx");
 
         Inquiries.Items.Add(NextOfKinInquiry);     
         Inquiries.Items.Add(DeletedPatients);
-        Inquiries.Items.Add(UserRolesInquiry);
+        Inquiries.Items.Add(PatientsBelow15);
+        Inquiries.Items.Add(AuditTrails);
 
         NavBarItem Users = new NavBarItem("New User", "/Module1/NewUser.aspx");
         NavBarItem Departments = new NavBarItem("Departments", "/Module1/DepartmentsForm.aspx");

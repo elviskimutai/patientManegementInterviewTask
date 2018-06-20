@@ -113,6 +113,38 @@ public class Patient
             return null;
         }
     }
+    public DataSet GetPatientsBelow15()
+    {
+        try
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString))
+            {
+                using (SqlCommand SqlCommand = new SqlCommand("spSelectPatientsBelow15", con))
+                {
+                    ds = new DataSet("PatientsDetails");
+                    SqlCommand.CommandType = CommandType.StoredProcedure;
+                    SqlCommand.Parameters.Clear();
+                   
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SQAdapter.SelectCommand = SqlCommand;
+                    SQAdapter.Fill(ds, "PatientsDetails");
+                    return ds;
+                }
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Security secs = new Security();
+            secs.ErrorDesscription = ex.Message;
+            secs.ErrorModule = "Select  Deleted Patients";
+            secs.SaveError();
+            return null;
+        }
+    }
     public bool SaveSavePatientDetails()
     {
         try

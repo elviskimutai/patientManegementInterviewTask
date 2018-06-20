@@ -175,14 +175,14 @@ public partial class Kim_NextOfKinForm : System.Web.UI.Page
             txtNames.Text = ds.Tables["NextOfKin"].Rows[0]["Names"].ToString();
             txtCounty.Text = ds.Tables["NextOfKin"].Rows[0]["County"].ToString();
 
-            txtSubCounty.Text = ds.Tables["NextOfKinClasss"].Rows[0]["SubCounty"].ToString();
+            txtSubCounty.Text = ds.Tables["NextOfKin"].Rows[0]["SubCounty"].ToString();
 
-            txtWard.Text = ds.Tables["NextOfKinClasss"].Rows[0]["Ward"].ToString();
-            txtVillage.Text = ds.Tables["NextOfKinClasss"].Rows[0]["Village"].ToString();
-            txtCellPhone.Text = ds.Tables["NextOfKinClasss"].Rows[0]["CellPhone"].ToString();
-            txtEmail.Text = ds.Tables["NextOfKinClasss"].Rows[0]["Email"].ToString();
+            txtWard.Text = ds.Tables["NextOfKin"].Rows[0]["Ward"].ToString();
+            txtVillage.Text = ds.Tables["NextOfKin"].Rows[0]["Village"].ToString();
+            txtCellPhone.Text = ds.Tables["NextOfKin"].Rows[0]["CellPhone"].ToString();
+            txtEmail.Text = ds.Tables["NextOfKin"].Rows[0]["Email"].ToString();
 
-            dtpDOB.Value = ds.Tables["NextOfKinClasss"].Rows[0]["DOB"].ToString();
+            dtpDOB.Value = ds.Tables["NextOfKin"].Rows[0]["DOB"].ToString();
            
 
 

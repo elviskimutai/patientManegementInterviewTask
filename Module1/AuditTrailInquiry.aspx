@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NextOfKinInquiry.aspx.cs" Inherits="MedicalDevices_NextOfKinInquiry" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AuditTrailInquiry.aspx.cs" Inherits="MedicalDevices_Audit_Trail_Inquiry" %>
 
 <%@ Register assembly="DevExpress.Web.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 
@@ -7,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Next Of Kin Inquiry</title>
+    <title>Audit Trail Inquiry</title>
     <style type="text/css">
 
 
@@ -73,7 +72,7 @@
   
     <form id="form1" runat="server">
          
-                                <dx:ASPxCallbackPanel ID="cpNextOfKinInquiry" runat="server" ClientInstanceName="cpNextOfKinInquiry" OnCallback="cpNextOfKinInquiry_Callback">
+                                <dx:ASPxCallbackPanel ID="cpAuditTrailInquiry" runat="server" ClientInstanceName="cpAuditTrailInquiry" OnCallback="cpAuditTrailInquiry_Callback">
                                 <PanelCollection>
                                     <dx:PanelContent runat="server">
                                  
@@ -88,7 +87,7 @@
             <dx:MenuItem Text="" Name="Item1">
                 <ItemStyle/>
                 <Template>
-                    <dx:ASPxLabel ID="lblCurrentPage" runat="server" Text="Next Of Kin Inquiry" ForeColor="Blue">
+                    <dx:ASPxLabel ID="lblCurrentPage" runat="server" Text="Audit Trail Inquiry" ForeColor="Blue">
                     </dx:ASPxLabel>
                 </Template>
             </dx:MenuItem>
@@ -113,7 +112,7 @@
 </ItemStyle>
 </dx:ASPxMenu>
 
-                    <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="GVNextOfKinInquiry">
+                    <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="GVAuditTrail">
                     </dx:ASPxGridViewExporter>
 
                 </td>
@@ -135,7 +134,7 @@
 	case &quot;mnuFind&quot;:		
 		
 
-			cpNextOfKinInquiry.PerformCallback();
+			cpAuditTrailInquiry.PerformCallback();
 			
 
 			case &quot;mnuLinks&quot;:
@@ -149,9 +148,6 @@ case &quot;mnuClose&quot;:
           }	
      break;
 
-case &quot;mnuHelp&quot;:
-		window.open(&quot;/WebHelp/NextOfKinInquiry/index.htm&quot;);
-	break;
 
 	default:
 	break;
@@ -208,7 +204,7 @@ function OnInit(s, e) {
 	switch(e.item.name)
 {
 	case &quot;mnuFind&quot;:		
-				cpNextOfKinInquiry.PerformCallback();
+				cpAuditTrailInquiry.PerformCallback();
 			
 			case &quot;mnuLinks&quot;:
 		
@@ -221,9 +217,7 @@ case &quot;mnuClose&quot;:
           }	
      break;
 
-case &quot;mnuHelp&quot;:
-		window.open(&quot;/WebHelp/NextOfKinInquiry/index.htm&quot;);
-	break;
+
 
 	default:
 	break;
@@ -268,7 +262,7 @@ case &quot;mnuHelp&quot;:
     
         <dx:ASPxPageControl ID="ASPxPageControl10" runat="server" ActiveTabIndex="0" EnableTabScrolling="True" EnableTheming="True" Theme="Metropolis" Width="100%">
             <TabPages>
-                <dx:TabPage Text="Next Of Kin Inquiry">
+                <dx:TabPage Text="Audit Trail Inquiry">
                     <ContentCollection>
                         <dx:ContentControl runat="server">
                            
@@ -294,7 +288,7 @@ case &quot;mnuHelp&quot;:
         
     </div>
  
-       <dx:ASPxGridView runat="server" Width="100%" ID="GVNextOfKinInquiry" ClientInstanceName="GVNextOfKinInquiry" EnableRowsCache="False" EnableTheming="True" Theme="Metropolis" OnFillContextMenuItems="Grid_FillContextMenuItems"  OnContextMenuItemClick="Grid_ContextMenuItemClick" >
+       <dx:ASPxGridView runat="server" Width="100%" ID="GVAuditTrail" ClientInstanceName="GVAuditTrail" EnableRowsCache="False" EnableTheming="True" Theme="Metropolis" OnFillContextMenuItems="Grid_FillContextMenuItems"  OnContextMenuItemClick="Grid_ContextMenuItemClick" >
             <Settings VerticalScrollBarMode="Auto" ShowFilterBar="Visible" ShowFilterRow="True" ShowFilterRowMenu="True" ShowGroupPanel="True" ShowFooter="True" />
                         <SettingsBehavior AllowSelectByRowClick="True" ColumnResizeMode="Control" />
                         <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
@@ -309,9 +303,7 @@ OnContextMenuItemClick(s, e);
             <SettingsContextMenu Enabled="True">
             </SettingsContextMenu>
             <settingspager numericbuttoncount="6" />
-           <TotalSummary>
-                <dx:ASPxSummaryItem DisplayFormat="{0:n2}" FieldName="GrandTotal" ShowInColumn="GrandTotal" SummaryType="Sum" />
-         </TotalSummary>
+         
             <Styles>
                 <Cell Wrap="False"></Cell>
             </Styles>
@@ -325,7 +317,7 @@ OnContextMenuItemClick(s, e);
      <script type ="text/javascript" src ="../Scripts/SecurityValidation.js"></script>
         <script>
             function OnContextMenuItemClick(sender, args) {
-              
+             
                     if (args.item.name == "ExportToPDF" || args.item.name == "ExportToXLS" || args.item.name == "ExportToCSV" || args.item.name == "ExportToWORD") {
 
                         args.processOnServer = true;
@@ -335,6 +327,7 @@ OnContextMenuItemClick(s, e);
 
 
                 
+
             }
 
         </script>

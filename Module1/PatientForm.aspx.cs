@@ -13,9 +13,9 @@ public partial class Module1_PatientForm : System.Web.UI.Page
     Patient _Patient = new Patient();
     protected void Page_Load(object sender, EventArgs e)
     {
-        HttpCookie UserName = new HttpCookie("UserName");
-        UserName.Value = "elviskimcheruiyot@gmail.com";
-        Response.Cookies.Add(UserName);
+        //HttpCookie UserName = new HttpCookie("UserName");
+        //UserName.Value = "elviskimcheruiyot@gmail.com";
+        //Response.Cookies.Add(UserName);
         LoadPatientsDetailsToGrid();
         LoadDepartents();
         if (this.Page.IsPostBack.Equals(false))

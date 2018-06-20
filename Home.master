@@ -7,12 +7,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">   
-    <title>Real Pro Solutions </title>
+    <title>Palladium|HealthProject </title>
         <link rel="icon" type="image/ico" href="Images/home.png" />
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>    
 
-    <script src="../Scripts/CapitalVenture.js"></script>    
+     
 
     <style type="text/css">
     .modal
@@ -149,12 +149,12 @@ function OnInit(s, e) {
                                         <span class="auto-style7"></span></td>
                                     <td>
                                         <br />
-                                        <dx:ASPxLabel ID="lblCompany" runat="server" Font-Bold="False" Font-Size="10pt" ForeColor="#3F5396" style="font-size: small" Text="Real Pro Solutions" Theme="RedWine">
+                                        <dx:ASPxLabel ID="lblCompany" runat="server" Font-Bold="False" Font-Size="10pt" ForeColor="#3F5396" style="font-size: small" Text="Palladium|HealthProject" Theme="RedWine">
                                         </dx:ASPxLabel>
                                     </td>
                                     <td>
                                         <br />
-                                        <dx:ASPxLabel ID="lblUserName" runat="server" Font-Bold="False" Font-Size="10pt" ForeColor="#3F5396" style="font-size: small" Text="Guest:" Theme="RedWine">
+                                        <dx:ASPxLabel ID="lblUserName" runat="server" Font-Bold="False" Font-Size="10pt" ForeColor="#3F5396" style="font-size: small" Text="" Theme="RedWine">
                                         </dx:ASPxLabel>
                                     </td>
                                 </tr>

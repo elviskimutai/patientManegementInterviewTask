@@ -85,7 +85,7 @@
         <table class="auto-style1">
             <tr>
                 <td>        
-    <dx:ASPxMenu runat="server" EnableAdaptivity="True" CssClass="nav" ID="ASPxMenu9" EnableTheming="True" Font-Bold="True" ForeColor="Red" Theme="Office2003Blue">
+    <dx:ASPxMenu runat="server" EnableAdaptivity="True" CssClass="nav" ID="ASPxMenu9" EnableTheming="True" Font-Bold="True" ForeColor="Red" Theme="Metropolis">
         <Items>
             <dx:MenuItem Text="Get Funding" Name="Item1">
                 <ItemStyle/>

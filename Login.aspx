@@ -9,7 +9,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Real Pro Solutions: Login</title>
+    <title>Palladium|HealthProject </title>
       <link rel="icon" type="image/ico" href="Images/home.png" />
   <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../Content/style.css" rel="stylesheet" />
